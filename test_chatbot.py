@@ -45,6 +45,19 @@ class TestChatBot(unittest.TestCase):
             __bot.set_Message(sentence)
             self.__response = __bot.get_Response()
             self.assertIn(self.__response, self.__zufallsantworten)
+            
+    def test_empty_spaces(self):
+        """Test von Leerzeichen"""
+        self.__zufallsantworten = ["Oh wirklich...", "Interessant", "Das kann man so sehen.", "Ich verstehe..."]
+        self.__reaktionen = {"hallo": "aber hallo",
+                             "geht": "Was verstehst Du darunter",
+                             "schmeckt": "Ich habe keinen Geschmackssinn"}
+        __data = [" "]        
+        __bot = Chatbot(self.__reaktionen, self.__zufallsantworten)
+        for sentence in __data:
+            __bot.set_Message(sentence)
+            self.__response = __bot.get_Response()
+            self.assertIn(self.__response, self.__zufallsantworten)
 
 
 if __name__ == '__main__':
