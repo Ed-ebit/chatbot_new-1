@@ -12,6 +12,8 @@ app.config['SECRET_KEY'] = 'Pa$$w0rd'
 @app.route('/', methods=('GET', 'POST'))
 def index():
     file = file_handling("answers.json")
+    zufallsantworten = file.zufallsantworten
+    reaktionen = file.reaktionen
     chatbot_label = "Hallo, worüber wollen Sie sprechen?"
 
     # Listen

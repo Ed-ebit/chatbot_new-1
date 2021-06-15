@@ -1,7 +1,4 @@
-import random
 import json
-
-
 
 class file_handling:
     """Klasse, die das Gedächtnis des Chatbots enthaelt.

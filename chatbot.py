@@ -2,6 +2,7 @@
 # -*- coding:utf-8 -*-
 
 import random
+from file_handling import file_handling
 
 
 class Chatbot:
@@ -45,13 +46,9 @@ class Chatbot:
 
 def main():
     # Listen
-    zufallsantworten = ["Oh wirklich...",
-                        "Interessant",
-                        "Das kann man so sehen",
-                        "Ich verstehe"]
-    reaktionen = {"hallo": "aber hallo",
-                  "geht": "was verstehst du darunter?",
-                  "schmeckt": "Ich habe keinen Geschmackssinn."}
+    file = file_handling("answers.json")
+    zufallsantworten = file.zufallsantworten
+    reaktionen = file.reaktionen
 
     # Ausgabe Begrüßung
     print("Willkommen beim Chatbot (v2)")

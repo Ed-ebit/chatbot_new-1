@@ -11,16 +11,15 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 from chatbot import Chatbot
+from file_handling import file_handling
 
 
 class Ui_MainWindow(object):
 
     def Button_Los_click(self):
-        zufallsantworten = ["Oh wirklich...", "Interessant", "Das kann man so sehen.", "Ich verstehe..."]
-
-        reaktionen = {"hallo": "aber hallo",
-                    "geht": "Was verstehst Du darunter",
-                    "schmeckt": "Ich habe keinen Geschmackssinn"}
+        file = file_handling("answers.json")
+        zufallsantworten = file.zufallsantworten
+        reaktionen = file.reaktionen
 
         if self.chatbot_input.text() == "":
             message = QMessageBox()
